@@ -70,3 +70,18 @@ video {
 	border: 1px solid #b2b2b2 !important;
 	border-radius: 0.25em;
 }
+
+
+.decode_Link_Container{
+    width: 100%;
+    padding: 5px;
+}
+
+.decode_Link_Container > input{
+    height: 20px;
+    width: 50%;
+    padding: 6px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+}

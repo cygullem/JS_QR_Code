@@ -1,8 +1,5 @@
 function domReady(fn) {
-	if (
-		document.readyState === "complete" ||
-		document.readyState === "interactive"
-	) {
+	if (document.readyState === "complete" || document.readyState === "interactive") {
 		setTimeout(fn, 1000);
 	} else {
 		document.addEventListener("DOMContentLoaded", fn);
@@ -10,11 +7,19 @@ function domReady(fn) {
 }
 
 domReady(function () {
+    let clickLink = document.getElementById("clickLink");
 
-	// If found you qr code
 	function onScanSuccess(decodeText, decodeResult) {
 		alert("You Qr is : " + decodeText, decodeResult);
+
+        document.getElementById("followLink").value = `${decodeText}, ${decodeResult}`;
+        htmlscanner.stop();
+        htmlscanner.clear();
 	}
+
+    clickLink.onclick = () => {
+        console.log('clicked!');
+    }
 
 	let htmlscanner = new Html5QrcodeScanner(
 		"my-qr-reader",
