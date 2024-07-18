@@ -7,24 +7,31 @@ function domReady(fn) {
 }
 
 domReady(function () {
-    let clickLink = document.getElementById("clickLink");
-
+	let clickLink = document.getElementById("clickLink");
+	
 	function onScanSuccess(decodeText, decodeResult) {
-		alert("You Qr is : " + decodeText, decodeResult);
+		alert("Your QR code is: " + decodeText);
+		
+		let followLink = document.getElementById("followLink");
+		followLink.value = decodeText;
 
-        document.getElementById("followLink").value = `${decodeText}, ${decodeResult}`;
-        htmlscanner.stop();
-        htmlscanner.clear();
+		htmlscanner.stop();
+		htmlscanner.clear();
 	}
-
-    clickLink.onclick = () => {
-        console.log('clicked!');
-		clickLink.target = '_blank';
-    }
+	
+	clickLink.addEventListener('click', function() {
+		let followLink = document.getElementById("followLink").value;
+		if (followLink) {
+			// Open the link in a new tab
+			window.open(followLink, '_blank');
+		} else {
+			alert('Please scan a QR code first');
+		}
+	});
 
 	let htmlscanner = new Html5QrcodeScanner(
 		"my-qr-reader",
-		{ fps: 10, qrbos: 250 }
+		{ fps: 10, qrbox: 250 }
 	);
 	htmlscanner.render(onScanSuccess);
 });
