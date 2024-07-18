@@ -8,10 +8,12 @@
 
 body {
 	display: flex;
+	align-items: center;
 	justify-content: center;
 	margin: 0;
 	padding: 0;
 	height: 100vh;
+	width: 100%;
 	box-sizing: border-box;
 	text-align: center;
 	background: rgba(159, 159, 159, 0.66);
@@ -53,7 +55,7 @@ button {
 	padding: 10px 20px;
 	border: 1px solid #b2b2b2;
 	outline: none;
-	border-radius: 0.25em;
+	border-radius: 10px;
 	color: white;
 	font-size: 15px;
 	cursor: pointer;
@@ -81,12 +83,12 @@ video {
 
 .decode_Link_Container{
     width: 100%;
-    padding: 5px;
 }
 
-.decode_Link_Container > input{
-    height: 20px;
-    width: 50%;
+.decodeLinkFollow{
+	font-size: 15px;
+    height: 40px;
+    width: 80%;
     padding: 6px;
     border-radius: 10px;
     outline: none;

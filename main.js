@@ -19,6 +19,7 @@ domReady(function () {
 
     clickLink.onclick = () => {
         console.log('clicked!');
+		clickLink.target = '_blank';
     }
 
 	let htmlscanner = new Html5QrcodeScanner(
